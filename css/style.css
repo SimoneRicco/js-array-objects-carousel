@@ -79,4 +79,8 @@
 	color: white;
 	/* height: 100px;
 	width: 100px; */
+	z-index: 1;
+	left: 16px;
+	top: 8px;
+	font-size: 2rem;
 }

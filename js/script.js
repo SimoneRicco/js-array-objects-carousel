@@ -51,7 +51,7 @@ const btnNext = document.querySelector('.btn-next');
 let activeIndex = 0;
 btnNext.addEventListener('click', next);
 const caroselText = document.querySelector(".text-highlighted");
-caroselText.innerHTML = "write(activeIndex)";
+caroselText.innerHTML = write(activeIndex);
 function next() {
 	// dall'immagine attiva tolgo la classe active
 	listHighlighted[activeIndex].classList.remove('active');
@@ -93,14 +93,19 @@ for (let i = 0; i < listThumbs.length; i++) {
 			activeIndex = i;
 			listHighlighted[activeIndex].classList.add('active');
 			listThumbs[activeIndex].classList.add('active');
+			caroselText.innerHTML = write(activeIndex);
 		}
 	)
 }
 let interval;
 const btnStart = document.querySelector(".start");
 const btnStop = document.querySelector(".stop");
+const btnReverse = document.querySelector(".reverse");
 btnStart.addEventListener("click", function () {
 	interval = setInterval(next, 2500);
+});
+btnReverse.addEventListener("click", function () {
+	interval = setInterval(prev, 2500);
 });
 btnStop.addEventListener("click", function () {
 	clearInterval(interval)
@@ -123,6 +128,7 @@ function write(num) {
 			break;
 		case 4:
 			toReturn = "Avengers";
+			break;
 		default:
 			toReturn = "None"
 			break;
