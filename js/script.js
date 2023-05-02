@@ -34,7 +34,6 @@ const containerHighlighted = document.querySelector('.highlighted');
 const containerThumbs = document.querySelector('.thumbs');
 
 for (let i = 0; i < images.length; i++) {
-	console.log(images[i].image)
 	containerHighlighted.innerHTML += `<img src="${images[i].image}" alt="" class= "${i == 0 ? 'active' : ''}">`;
 	containerThumbs.innerHTML += `<img src="${images[i].image}" alt="" class="${i == 0 ? 'active' : ''}">`;
 }
@@ -51,8 +50,8 @@ const btnNext = document.querySelector('.btn-next');
 
 let activeIndex = 0;
 btnNext.addEventListener('click', next);
-containerHighlighted.innerHTML += `<div class = text-hihlighted> ${write(activeIndex)} </div>`;
 const caroselText = document.querySelector(".text-highlighted");
+caroselText.innerHTML = "write(activeIndex)";
 function next() {
 	// dall'immagine attiva tolgo la classe active
 	listHighlighted[activeIndex].classList.remove('active');
@@ -125,8 +124,10 @@ function write(num) {
 		case 4:
 			toReturn = "Avengers";
 		default:
+			toReturn = "None"
 			break;
 	}
+	console.log(num)
 	return toReturn;
 }
 /*
